@@ -1,1 +1,40 @@
-<p>footer works!</p>
+<footer class="bottombar">
+  <div class="footer-container">
+    <!-- Coluna 1: Marca -->
+    <div class="footer-brand">
+      <a routerLink="/home" class="brand-link">
+        <span class="brand-mark">DG</span>
+        <div>
+          <p class="eyebrow">Plataforma</p>
+          <h2>Dev-Games</h2>
+        </div>
+      </a>
+      <p class="brand-desc">
+        Seu portal definitivo para descobrir, jogar e conectar-se com a comunidade gamer.
+      </p>
+    </div>
+
+    <!-- Coluna 2: Navegação -->
+    <div class="footer-links">
+      <h3>Navegação</h3>
+      <a routerLink="/home">Home</a>
+      <a routerLink="/catalogo">Catálogo</a>
+      <a routerLink="/jogos">Jogos</a>
+      <a routerLink="/comunidade">Comunidade</a>
+      <a routerLink="/noticias">Notícias</a>
+    </div>
+
+    <!-- Coluna 3: Conta e Suporte -->
+    <div class="footer-links">
+      <h3>Plataforma</h3>
+      <a routerLink="/perfil">Meu Perfil</a>
+      <a routerLink="/noticias">Atualizações</a>
+      <a routerLink="/comunidade">Fórum & Regras</a>
+    </div>
+  </div>
+
+  <!-- Barra de Direitos Autorais -->
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} Dev-Games. Todos os direitos reservados.</p>
+  </div>
+</footer>
