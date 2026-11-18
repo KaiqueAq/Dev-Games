@@ -1,1 +1,69 @@
-<p>home works!</p>
+<div class="home-container">
+  <!-- Banner Principal (Hero) -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <span class="hero-badge">🔥 Novidades da Temporada</span>
+      <h1>Explore universos épicos na <span>Dev-Games</span></h1>
+      <p>
+        Descubra lançamentos, monte sua coleção, acompanhe as últimas notícias e conecte-se com jogadores de todo o mundo.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/catalogo" class="btn-primary">Explorar Catálogo</a>
+        <a routerLink="/comunidade" class="btn-secondary">Entrar na Comunidade</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Jogos em Destaque -->
+  <section class="section-block">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Em Alta</p>
+        <h2>Jogos em Destaque</h2>
+      </div>
+      <a routerLink="/jogos" class="view-all">Ver todos os jogos &rarr;</a>
+    </div>
+
+    <div class="games-grid">
+      @for (game of featuredGames; track game.id) {
+        <article class="game-card">
+          <div class="card-image">
+            <img [src]="game.cover" [alt]="game.title" />
+            <span class="rating-badge">★ {{ game.rating }}</span>
+          </div>
+          <div class="card-body">
+            <span class="game-genre">{{ game.genre }}</span>
+            <h3>{{ game.title }}</h3>
+            <div class="card-footer">
+              <span class="game-price">{{ game.price }}</span>
+              <a routerLink="/catalogo" class="btn-card">Detalhes</a>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- Seção: Últimas Notícias -->
+  <section class="section-block">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Radar Gamer</p>
+        <h2>Últimas Notícias</h2>
+      </div>
+      <a routerLink="/noticias" class="view-all">Ler todas &rarr;</a>
+    </div>
+
+    <div class="news-list">
+      @for (news of latestNews; track news.id) {
+        <a routerLink="/noticias" class="news-item">
+          <div class="news-meta">
+            <span class="news-tag">{{ news.tag }}</span>
+            <span class="news-date">{{ news.date }}</span>
+          </div>
+          <h3>{{ news.title }}</h3>
+        </a>
+      }
+    </div>
+  </section>
+</div>

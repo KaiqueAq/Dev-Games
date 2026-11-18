@@ -3,7 +3,7 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": false
+    "analytics": "92cf3d1e-56ee-46b7-abe8-7c5b223abf2b"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -27,7 +27,7 @@
               {
                 "glob": "**/*",
                 "input": "src/assets",
-                "output": "assets"
+                "output": "/assets/"
               }
             ],
             "styles": [
