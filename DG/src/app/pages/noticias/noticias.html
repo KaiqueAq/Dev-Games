@@ -1,1 +1,60 @@
-<p>noticias works!</p>
+<div class="news-page">
+  <div class="news-shell">
+    <header class="news-header">
+      <div>
+        <p class="eyebrow">DEV-GAMES · ATUALIZAÇÕES</p>
+        <h1>Notícias e histórias</h1>
+        <p class="news-intro">Novidades, curiosidades e especiais sobre jogos clássicos e a comunidade gamer.</p>
+      </div>
+      <span class="editorial-label">SELEÇÃO EDITORIAL</span>
+    </header>
+
+    <p class="demo-note" role="note">
+      <span aria-hidden="true">ⓘ</span>
+      Conteúdo demonstrativo. Esta página ainda não recebe notícias de um feed ou serviço externo.
+    </p>
+
+    <section class="featured" aria-labelledby="featured-title">
+      <div class="featured-image">
+        <img [src]="featuredArticle.image" [alt]="featuredArticle.imageAlt">
+        <span class="image-shade" aria-hidden="true"></span>
+        <span class="featured-badge">DESTAQUE</span>
+      </div>
+      <div class="featured-content">
+        <p class="article-category">{{ featuredArticle.category }}</p>
+        <h2 id="featured-title">{{ featuredArticle.title }}</h2>
+        <p class="article-summary">{{ featuredArticle.summary }}</p>
+        <div class="featured-footer">
+          <span class="read-time">{{ featuredArticle.readTime }}</span>
+          <a routerLink="/catalogo" class="read-link">Explorar catálogo <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="articles-section" aria-labelledby="articles-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">DO UNIVERSO DOS JOGOS</p>
+          <h2 id="articles-title">Mais histórias</h2>
+        </div>
+      </div>
+
+      <div class="articles-grid">
+        @for (article of articles; track article.title) {
+          <article class="article-card">
+            <div class="article-image">
+              <img [src]="article.image" [alt]="article.imageAlt" loading="lazy">
+              <span class="image-category">{{ article.category }}</span>
+            </div>
+            <div class="article-body">
+              <p class="article-meta">{{ article.readTime }}</p>
+              <h3>{{ article.title }}</h3>
+              <p class="article-summary">{{ article.summary }}</p>
+              <a routerLink="/catalogo" class="article-link">Ver no catálogo <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+  </div>
+</div>

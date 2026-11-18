@@ -19,4 +19,14 @@ describe('Perfil', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('shows the demo profile and featured games', () => {
+    fixture.detectChanges();
+
+    const page: HTMLElement = fixture.nativeElement;
+    expect(page.querySelector('h1')?.textContent).toContain('Player One');
+    expect(page.querySelectorAll('.stat-card').length).toBe(3);
+    expect(page.querySelectorAll('.game-card').length).toBe(3);
+    expect(page.querySelector('.demo-notice')?.textContent).toContain('demonstrativo');
+  });
 });

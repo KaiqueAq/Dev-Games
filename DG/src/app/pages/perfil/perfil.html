@@ -1,1 +1,73 @@
-<p>perfil works!</p>
+<div class="profile-page">
+  <div class="profile-shell">
+    <div class="demo-notice" role="note">
+      <span class="notice-dot" aria-hidden="true"></span>
+      Perfil demonstrativo — estes dados ainda não estão ligados a uma conta real.
+    </div>
+
+    <section class="profile-hero" aria-labelledby="player-name">
+      <div class="avatar" aria-label="Avatar demonstrativo do jogador">{{ player.initials }}</div>
+      <div class="player-details">
+        <div class="player-kicker">PERFIL DO JOGADOR</div>
+        <h1 id="player-name">{{ player.name }}</h1>
+        <p class="player-bio">{{ player.bio }}</p>
+        <div class="player-status"><span class="online-dot" aria-hidden="true"></span> Explorando o catálogo</div>
+      </div>
+      <div class="level-card" aria-label="Nível do jogador">
+        <span class="level-label">NÍVEL</span>
+        <span class="level-number">{{ player.level }}</span>
+        <span class="level-caption">Jogador</span>
+      </div>
+    </section>
+
+    <section class="progress-panel" aria-label="Progresso para o próximo nível">
+      <div class="progress-copy">
+        <span>Progresso para o nível {{ player.nextLevel }}</span>
+        <strong>{{ player.progress }}%</strong>
+      </div>
+      <div class="progress-track" role="progressbar" [attr.aria-valuenow]="player.progress" aria-valuemin="0" aria-valuemax="100" [attr.aria-label]="player.progress + '% para o próximo nível'">
+        <span class="progress-fill" [style.width.%]="player.progress"></span>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="Estatísticas demonstrativas">
+      @for (stat of stats; track stat.label) {
+        <article class="stat-card">
+          <span class="stat-icon" aria-hidden="true">{{ stat.icon }}</span>
+          <div>
+            <p class="stat-label">{{ stat.label }}</p>
+            <p class="stat-value">{{ stat.value }}</p>
+            <p class="stat-caption">{{ stat.caption }}</p>
+          </div>
+        </article>
+      }
+    </section>
+
+    <section class="games-section" aria-labelledby="games-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-eyebrow">SUA COLEÇÃO</p>
+          <h2 id="games-title">Jogos em destaque</h2>
+        </div>
+        <span class="demo-tag">EXEMPLOS</span>
+      </div>
+
+      <div class="games-grid">
+        @for (game of featuredGames; track game.title) {
+          <article class="game-card">
+            <div class="game-art">
+              <img [src]="game.image" [alt]="'Capa de ' + game.title" loading="lazy">
+            </div>
+            <div class="game-info">
+              <div class="game-copy">
+                <h3>{{ game.title }}</h3>
+                <p>{{ game.description }}</p>
+              </div>
+              <span class="platform-tag">{{ game.platform }}</span>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+  </div>
+</div>
